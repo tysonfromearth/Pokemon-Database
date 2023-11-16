@@ -2,7 +2,7 @@
 
 // Function to fetch and display data (READ operation)
 function fetchAndDisplayCards() {
-    fetch('/api/cards')
+    fetch('/cards')
         .then(response => response.json())
         .then(cards => {
             // TODO: Update your HTML with the fetched cards data
@@ -13,7 +13,7 @@ function fetchAndDisplayCards() {
 // Function to handle form submission (CREATE or UPDATE operation)
 function submitCardForm(formData) {
     // Determine whether it's a create or update operation based on formData
-    const url = formData.get('card_id') ? '/api/cards/' + formData.get('card_id') : '/api/cards';
+    const url = formData.get('card_id') ? '/cards/' + formData.get('card_id') : '/cards';
     const method = formData.get('card_id') ? 'PUT' : 'POST';
 
     fetch(url, {
@@ -34,7 +34,7 @@ function submitCardForm(formData) {
 
 // Function to handle card deletion (DELETE operation)
 function deleteCard(cardId) {
-    fetch('/api/cards/' + cardId, { method: 'DELETE' })
+    fetch('/cards/' + cardId, { method: 'DELETE' })
         .then(response => {
             if (response.ok) {
                 // TODO: Handle successful deletion
