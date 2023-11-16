@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="styles.css">
+    <meta charset="UTF-8">
+    <title>Edit Pokémon</title>
+</head>
+<body>
+    <h1>Edit Pokémon</h1>
+    <form id="editPokemonForm" action="/pokemon/[POKEMON_ID]" method="post">
+        <!-- POKEMON_ID should be dynamically replaced with the actual ID of the Pokémon being edited -->
+
+        <label for="pokedex_number">Pokédex Number:</label>
+        <input type="text" id="pokedex_number" name="pokedex_number" required><br>
+
+        <label for="pokemon_name">Pokémon Name:</label>
+        <input type="text" id="pokemon_name" name="pokemon_name" required><br>
+
+        <label for="type">Type:</label>
+        <input type="text" id="type" name="type" required><br>
+
+        <label for="evolution_stage">Evolution Stage:</label>
+        <input type="text" id="evolution_stage" name="evolution_stage" required><br>
+
+        <label for="description">Description:</label>
+        <textarea id="description" name="description"></textarea><br>
+
+        <input type="submit" value="Update Pokémon">
+    </form>
+
+    <a href="view_pokemon.html">Back to Pokémon List</a>
+</body>
+</html>
