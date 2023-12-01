@@ -1,0 +1,173 @@
+/* Universal Styles */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+}
+
+h1 {
+    color: #333;
+    text-align: center;
+    margin-bottom: 20px;
+    border-bottom: 2px solid #ddd;
+    padding-bottom: 20px;
+
+}
+
+/* View Table Styles  */
+table {
+    width: 50%; /* You can adjust this as per your needs */
+    margin: 20px auto; /* Centers the form horizontally */    border-collapse: collapse;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+th, td {
+    padding: 10px 15px;
+    border: 1px solid #ddd;
+    text-align: left;
+}
+
+/* This is a container div for the button which ensures the button is centered */
+.button-container {
+    text-align: center;  /* Centers the inner content of the container */
+    margin-top: 20px;    /* Add some margin at the top for spacing */
+}
+
+/* Ensure the button within the container is displayed inline, for centering */
+.button-container button {
+    display: inline-block; 
+}
+
+thead {
+    background-color: #555;
+    color: white;
+}
+
+tbody tr:nth-child(odd) {
+    background-color: #f2f2f2;
+}
+
+
+a {
+    text-decoration: none;
+    color: #333;
+    margin: 0 5px;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+button {
+    display:flex;
+    align-items:center;
+    justify-content: center;
+    background-color: #555;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    text-align: center;
+    transition: background-color 0.2s;
+}
+
+button:hover {
+    background-color: #444;
+}
+
+button a {
+    color: white;
+    text-decoration: none;
+}
+
+/* Form Styles */
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 0px; 
+}
+
+label {
+    display: flex;
+    flex-direction: column;
+}
+
+input[type="text"], 
+input[type="number"], 
+input[type="date"], 
+textarea, 
+select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 16px;
+    transition: border-color 0.2s;
+}
+
+input[type="text"]:focus, 
+input[type="number"]:focus, 
+input[type="date"]:focus, 
+textarea:focus, 
+select:focus {
+    border-color: #555;
+    outline: none;
+}
+
+/*  Styles for Homepage */
+nav {
+    background-color: #f9f9f9;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+nav ul {
+    list-style-type: none; 
+    padding: 0;
+}
+
+nav ul li {
+    margin-bottom: 10px; 
+}
+
+nav ul li:last-child {
+    margin-bottom: 0; /* Remove margin from the last item */
+}
+
+nav a:hover {
+    color: #555;
+}
+
+/* Add some spacing around the main header */
+
+nav a {
+    color: rgb(24, 24, 202);
+}
+
+/* Add/Edit From Styles */
+form {
+    width: 50%; 
+    margin: 20px auto; 
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    background-color: white;
+    border-radius: 8px;
+}
+
+/* Style the input fields */
+/* form input[type="text"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+} */
+
+form label {
+    display: block;
+    margin-bottom: 8px;
+}
+
+form button {
+    margin-top: 10px;
+}
