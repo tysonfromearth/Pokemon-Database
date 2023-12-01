@@ -1,3 +1,7 @@
+//Citation for the following file:
+//Date: 2023-11-30
+//Copied as a template then based on
+//Source URL: https://github.com/osu-cs340-ecampus/nodejs-starter-app/
 
 function deletePerson(personID) {
     // Put our data we want to send in a javascript object

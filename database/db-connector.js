@@ -1,3 +1,8 @@
+//Citation for the following file:
+//Date: 2023-11-30
+//Copied as a template then based on
+//Source URL: https://github.com/osu-cs340-ecampus/nodejs-starter-app/
+
 // ./database/db-connector.js
 
 // Get an instance of mysql we can use in the app
