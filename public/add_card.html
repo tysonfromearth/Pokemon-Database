@@ -9,16 +9,28 @@
 <body>
     <div class="home-button"><a href="index.html">Home</a></div>
     <h1>Add Card</h1>
-    <form action="" method="POST">
+    <form action="http://flip1.engr.oregonstate.edu:9000/cards" method="POST">
         <!-- Card details form fields -->
         <label for="card_name">Card Name:</label>
         <input type="text" id="card_name" name="card_name" required><br>
 
         <label for="set_name">Set Name:</label>
-        <input type="text" id="set_name" name="set_name" required><br>
-
+        <select id="set_name" name="set_name" required>
+            <option value="Base Set">Base Set</option>
+            <option value="Jungle">Jungle</option>
+            <option value="Fossil">Fossil</option>
+        </select><br>
+        
         <label for="pokedex_number">Pokedex Number:</label>
-        <input type="number" id="pokedex_number" name="pokedex_number"><br>
+        <select id="pokedex_number" name="pokedex_number" required>
+            <option value="1">1 - Bulbasaur</option>
+            <option value="2">2 - Charmander</option>
+            <option value="3">3 - Squirtle</option>
+            <option value="4">4 - Charmander</option>
+            <option value="5">5 - Charmeleon</option>
+            <option value="6">6 - Blastoise</option>
+        </select><br>
+        
 
         <label for="type">Type:</label>
         <input type="text" id="type" name="type" required><br>

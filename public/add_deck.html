@@ -9,7 +9,7 @@
 <body>
     <div class="home-button"><a href="index.html">Home</a></div>
     <h1>Add Deck</h1>
-    <form action="" method="POST">
+    <form action="http://flip1.engr.oregonstate.edu:9000/decks" method="POST">
         <!-- Deck details form fields -->
         <label for="deck_name">Deck Name:</label>
         <input type="text" id="deck_name" name="deck_name" required><br>
@@ -20,8 +20,8 @@
         <label for="card_count">Card Count:</label>
         <input type="number" id="card_count" name="card_count" required><br>
 
-        <label for="number_of_pokemon">Number of Pokemon:</label>
-        <input type="number" id="number_of_pokemon" name="number_of_pokemon" required><br>
+        <label for="num_of_pokemon">Number of Pokemon:</label>
+        <input type="number" id="num_of_pokemon" name="num_of_pokemon" required><br>
         <button type="submit">Add Deck</button>
     </form>
 </body>
