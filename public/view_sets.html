@@ -1,16 +1,14 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <link rel="stylesheet" href="styles.css">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
     <title>View Sets</title>
 </head>
 <body>
     <div class="home-button"><a href="index.html">Home</a></div>
-
     <h1>View Sets</h1>
-    
     <table>
         <thead>
             <tr>
@@ -20,22 +18,58 @@
                 <th>Action</th>
             </tr>
         </thead>
-        <tbody>
-            <!-- Example Row (This should be dynamically generated using JavaScript) -->
-            <tr>
-                <td>Base Set</td>
-                <td>102</td>
-                <td>1999-01-09</td>
-                <td>
-                    <a href="edit_set.html">Edit</a> |
-                    <a href="">Delete</a>
-                </td>
-            </tr>
-            <!-- More rows will be added here dynamically -->
+        <tbody id="setsTableBody">
+            <!-- Set data will be dynamically generated here -->
         </tbody>
     </table>
     <div class="button-container">
         <button><a href="add_set.html">Add Set</a></button>
     </div>
+
+    <script>
+document.addEventListener('DOMContentLoaded', function() {
+    // Fetch sets and populate the table
+    fetch('http://flip1.engr.oregonstate.edu:9000/sets')
+        .then(response => response.json())
+        .then(sets => {
+            const tableBody = document.getElementById('setsTableBody');
+            sets.forEach(set => {
+                const row = document.createElement('tr');
+                row.id = `setRow_${set.set_name}`; // Add a unique ID to each row
+                row.innerHTML = `
+                    <td>${set.set_name}</td>
+                    <td>${set.number_of_cards}</td>
+                    <td>${set.release_date}</td>
+                    <td>
+                        <a href="#" onclick="deleteSet('${set.set_name}')">Delete</a>
+                    </td>
+                `;
+                tableBody.appendChild(row);
+            });
+        })
+        .catch(error => console.error('Error:', error));
+});
+
+function deleteSet(setName) {
+    if (confirm("Are you sure you want to delete this set?")) {
+        // Send an AJAX request to delete the set
+        fetch(`/sets/${setName}`, {
+            method: 'DELETE'
+        })
+        .then(response => {
+            if (response.status === 200) {
+                // Set deleted successfully, remove the row from the table
+                const rowToDelete = document.getElementById(`setRow_${setName}`);
+                rowToDelete.remove();
+            } else {
+                // Handle error here
+                console.error('Error:', response.statusText);
+            }
+        })
+        .catch(error => console.error('Error:', error));
+    }
+}
+
+    </script>
 </body>
 </html>

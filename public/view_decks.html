@@ -19,41 +19,58 @@
                 <th>Action</th>
             </tr>
         </thead>
-        <tbody>
-            <tr>
-                <td>Electric Surge</td>
-                <td>Electric/Water</td>
-                <td>60</td>
-                <td>14</td>
-                <td>
-                    <a href="edit_deck.html">Edit</a> |
-                    <a href="">Delete</a>
-                </td>
-            </tr>
-            <tr>
-                <td>Fiery Wrath</td>
-                <td>Fire/Dark</td>
-                <td>60</td>
-                <td>15</td>
-                <td>
-                    <a href="edit_deck.html">Edit</a> |
-                    <a href="">Delete</a>
-                </td>
-            </tr>
-            <tr>
-                <td>Forest Guard</td>
-                <td>Grass/Fighting</td>
-                <td>60</td>
-                <td>12</td>
-                <td>
-                    <a href="edit_deck.html">Edit</a> |
-                    <a href="">Delete</a>
-                </td>
-            </tr>
+        <tbody id="decksTableBody">
+
         </tbody>
     </table>
     <div class="button-container">
         <button><a href="add_deck.html">Add Deck</a></button>
     </div>
-    </body>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            fetch('http://flip1.engr.oregonstate.edu:9000/decks')
+                .then(response => response.json())
+                .then(decks => {
+                    const tableBody = document.getElementById('decksTableBody');
+                    decks.forEach(deck => {
+                        const row = document.createElement('tr');
+                        row.id = `deckRow_${deck.deck_id}`; // Add a unique ID to each row
+                        row.innerHTML = `
+                            <td>${deck.deck_name}</td>
+                            <td>${deck.type_combo}</td>
+                            <td>${deck.card_count}</td>
+                            <td>${deck.num_of_pokemon}</td>
+                            <td>
+                                <a href="edit_deck.html?deck_id=${deck.deck_id}">Edit</a> |
+                                <a href="#" onclick="deleteDeck(${deck.deck_id})">Delete</a>
+                            </td>
+                        `;
+                        tableBody.appendChild(row);
+                    });
+                })
+                .catch(error => console.error('Error:', error));
+        });
+    
+        function deleteDeck(deckId) {
+            if (confirm("Are you sure you want to delete this deck?")) {
+                // Send an AJAX request to delete the deck
+                fetch(`/decks/${deckId}`, {
+                    method: 'DELETE'
+                })
+                .then(response => {
+                    if (response.status === 200) {
+                        // Deck deleted successfully, remove the row from the table
+                        const rowToDelete = document.getElementById(`deckRow_${deckId}`);
+                        rowToDelete.remove();
+                    } else {
+                        // Handle error here
+                        console.error('Error:', response.statusText);
+                    }
+                })
+                .catch(error => console.error('Error:', error));
+            }
+        }
+    </script>
+</body>
 </html>
