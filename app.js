@@ -57,8 +57,6 @@ app.delete('/cards/:card_id', function (req, res) {
     });
 });
 
-
-
 // Read all Pokémon
 app.get('/pokemon', function (req, res) {
     dbPool.query('SELECT * FROM Pokemon', function (error, results) {
