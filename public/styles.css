@@ -153,16 +153,6 @@ form {
     border-radius: 8px;
 }
 
-/* Style the input fields */
-/* form input[type="text"] {
-    width: 100%;
-    padding: 10px;
-    margin-bottom: 10px;
-    box-sizing: border-box;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-} */
-
 form label {
     display: block;
     margin-bottom: 8px;
